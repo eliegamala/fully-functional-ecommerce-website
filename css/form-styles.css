@@ -1,0 +1,249 @@
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
+
+.contact .row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.contact .row img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.contact .row form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact .row form h3 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.contact .row form .box {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact .row form .box:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+.contact .row form textarea {
+  height: auto;
+  resize: vertical;
+}
+
+.contact .row form .hero-btn {
+  padding: 1rem 2rem;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact .row form .hero-btn:hover {
+  background-color: gainsboro;
+}
+
+/* Form container */
+
+
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  padding: 0 1rem;
+}
+
+
+.form-container form {
+  max-width: 400px;
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: center;
+}
+
+.form-container form h3 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-container form .box {
+  margin: 1rem 0;
+  padding: 1rem;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-container form .box:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.form-container form input[type="submit"] {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-container form input[type="submit"]:hover {
+  background-color: gainsboro;
+}
+
+.form-container form p {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+.form-container form p a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.form-container form p a:hover {
+  color: #0056b3;
+}
+
+/*profile styles*/
+.user-details {
+  margin: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.user-details .user {
+  background: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.user-details .user img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-details .user p {
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.user-details .user p span {
+  color: #555;
+}
+
+.user-details .user i {
+  margin-right: 0.5rem;
+  color: #007bff;
+}
+
+.user-details .user p.address {
+  margin-top: 1.5rem;
+}
+
+.user-details .user a.hero-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: black;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.user-details .user a.hero-btn:hover {
+  background-color: gainsboro;
+}
+
+.message{
+  position: sticky;
+  top: 0;
+  margin: 0 auto;
+  max-width: 100%;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2rem;
+
+}
+
+.message span{
+  font-size: 2rem;
+}
+
+.message i{
+  font-size: 2.5rem;
+  color: red;
+  cursor: pointer;
+  transition: .2s linear;
+}
+
+.message i:hover{
+  transform: rotate(180deg);
+}
