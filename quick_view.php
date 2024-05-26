@@ -10,8 +10,25 @@ if(isset($_SESSION['user_id'])){
 } else {
   $user_id = '';
 }
+
 include  'INCLUDES/add_cart.php';
 
+// Handle review submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_review'])) {
+    $product_id = $_POST['product_id'];
+    $rating = $_POST['rating'];
+    $comment = $_POST['comment'];
+
+    if ($user_id !== '') {
+        $insert_review = $conn->prepare("INSERT INTO reviews (product_id, user_id, rating, comment) VALUES (?, ?, ?, ?)");
+        $insert_review->execute([$product_id, $user_id, $rating, $comment]);
+          // Redirect to prevent form resubmission
+          header("Location: quick_view.php?pid=$product_id");
+          exit();
+    } else {
+        echo '<script>alert("You need to log in to submit a review!");</script>';
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +58,7 @@ include  'INCLUDES/add_cart.php';
 
 <div class="heading">
   <h2>product details</h2>
-  <p><a href="index.php">Home</a> <span> product</span></p>
+  <p><a href="index.php">Home</a> <span> / product</span></p>
 </div>
 
 <!-- quick view section starts -->
@@ -86,6 +103,57 @@ if($select_products->rowCount() > 0){
   echo '<div class="empty">No products found</div>';
 }
 ?>
+
+<!-- review section starts -->
+<section class="review-section">
+  <h3>Reviews</h3>
+
+  <!-- Review form -->
+  <form action="" method="post" class="review-form">
+    <input type="hidden" name="product_id" value="<?= $pid; ?>">
+    <div class="rating">
+      <label for="rating">Rating:</label>
+      <select name="rating" id="rating" required>
+        <option value="5">5</option>
+        <option value="4">4</option>
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+      </select>
+    </div>
+    <div class="comment">
+      <label for="comment">Comment:</label>
+      <textarea name="comment" id="comment" rows="4" required></textarea>
+    </div>
+    <button type="submit" name="submit_review">Submit Review</button>
+  </form>
+
+  <!-- Display reviews -->
+  <?php
+  $select_reviews = $conn->prepare("SELECT reviews.*, users.name FROM reviews JOIN users ON reviews.user_id = users.ID WHERE product_id = ? ORDER BY created_at DESC");
+  $select_reviews->execute([$pid]);
+  if($select_reviews->rowCount() > 0){
+    while($fetch_reviews = $select_reviews->fetch(PDO::FETCH_ASSOC)){
+  ?>
+    <div class="review">
+      <div class="review-header">
+        <strong><?= $fetch_reviews['name']; ?></strong>
+        <span class="rating">Rating: <?= $fetch_reviews['rating']; ?>/5</span>
+      </div>
+      <div class="review-body">
+        <p><?= $fetch_reviews['comment']; ?></p>
+        <small><?= $fetch_reviews['created_at']; ?></small>
+      </div>
+    </div>
+  <?php
+    }
+  } else {
+    echo '<div class="no-reviews">No reviews yet.</div>';
+  }
+  ?>
+</section>
+<!-- review section ends -->
+
 </section>
 
 <!-- quick view section ends -->

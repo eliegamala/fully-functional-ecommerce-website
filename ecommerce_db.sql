@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2024 at 04:26 PM
+-- Generation Time: May 26, 2024 at 10:44 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -146,6 +146,30 @@ INSERT INTO `products` (`ID`, `name`, `category`, `price`, `image`, `description
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `rating` int(11) NOT NULL CHECK (`rating` >= 1 and `rating` <= 5),
+  `comment` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `product_id`, `user_id`, `rating`, `comment`, `created_at`) VALUES
+(1, 4, 9, 5, 'great hoodie', '2024-05-26 07:44:03'),
+(5, 4, 9, 2, 'demon slayer', '2024-05-26 07:52:17'),
+(6, 4, 9, 5, 'aweseom hoodie', '2024-05-26 08:42:20');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -166,7 +190,8 @@ INSERT INTO `users` (`ID`, `name`, `email`, `number`, `password`, `address`) VAL
 (1, 'john doe', 'johndoe@gmail.com', 682415906, '074fe681c9742d991dc00dc287aba5094ff8c678', ''),
 (7, 'user1', 'user1@gmail.com', 681245684, '39dfa55283318d31afe5a3ff4a0e3253e2045e43', ''),
 (8, 'user2', 'user2@gmail.com', 654841694, '011c945f30ce2cbafc452f39840f025693339c42', '66 rochester road, cape town, wester cape, South Africa, 7925'),
-(9, 'user4', 'user4@gmail.com', 156151651, '39dfa55283318d31afe5a3ff4a0e3253e2045e43', '66 rochester road, cape town, wester cape, South Africa, 7925');
+(9, 'user4', 'user4@gmail.com', 156151651, '39dfa55283318d31afe5a3ff4a0e3253e2045e43', '66 rochester road, cape town, wester cape, South Africa, 7925'),
+(10, 'user5', 'user5@gmail.com', 247855555, '39dfa55283318d31afe5a3ff4a0e3253e2045e43', '');
 
 --
 -- Indexes for dumped tables
@@ -201,6 +226,14 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `users`
@@ -243,10 +276,27 @@ ALTER TABLE `products`
   MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
+-- AUTO_INCREMENT for table `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`ID`),
+  ADD CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
