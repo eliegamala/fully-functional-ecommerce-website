@@ -362,7 +362,7 @@ li {
 }
 
 .category-container {
-  padding: 2rem 0 5rem 0;
+  padding: 2rem 0 1rem 0;
   overflow: hidden;
 }
 .cat-center {
@@ -418,8 +418,8 @@ li {
   grid-template-columns: repeat(auto-fit, 33rem);
   justify-content: center;
   align-items: flex-start;
-  margin-top: 3rem;
-  gap: 3rem;
+  margin-top: 2.5rem;
+  gap: 2rem;
 }
 
 .products .box-container .cat-box {
@@ -527,8 +527,8 @@ li {
 
 .more-btn {
   text-align: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .more-btn a {
@@ -717,7 +717,6 @@ footer .boxinfo p {
 }
 
 /*category media queries*/
-/* category media queries */
 @media (max-width: 1200px) {
   .cat-center .cat img {
     max-width: 100%;
@@ -752,6 +751,30 @@ footer .boxinfo p {
   }
 }
 
+@media (max-width: 570px) {
+  .cat-center {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    gap: 2rem;
+  }
+  
+  
+.cat-center .cat div {
+  position: absolute;
+  bottom: 23%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--white);
+  height: 4rem;
+  width: 11rem;
+  line-height: 5rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+
+}
+
+
 @media (max-width: 567px), (max-width: 450px), (max-width: 320px) {
   .boxinfo {
     padding: 1rem;
@@ -777,6 +800,29 @@ footer .boxinfo p {
 
 @media (max-width: 570px) {
   .products .box-container {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    gap: 1rem; 
+  }
+
+  .products .box-container .cat-box {
+    height: auto; 
+    margin-bottom: 2rem; 
+  }
+
+  .products .box-container .cat-box img {
+    max-height: 15rem;
+  }
+
+  .products .box-container .cat-box .product-info {
+    padding: 1rem; 
+  }
+
+  .product-btns button {
+    width: auto; 
+  }
+  .more-btn {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 }

@@ -54,7 +54,7 @@ include  'INCLUDES/add_cart.php';
     ?>
     <div class="heading">
         <h2><?= $category ?></h2>
-        <p><a href="index.html">Home</a> <span> / <?= $category ?></span></p>
+        <p><a href="index.php">Home</a> <span> / <?= $category ?></span></p>
     </div>
 </section>
 
@@ -103,7 +103,7 @@ include  'INCLUDES/add_cart.php';
     </div>
 </section>
 <!-- Category section ends -->
-
+<br>
 <!-- Footer section -->
 <?php include 'INCLUDES/footer.php'; ?>
 <!-- Footer section ends -->
