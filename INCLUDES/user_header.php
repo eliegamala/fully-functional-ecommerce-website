@@ -63,7 +63,7 @@ if (isset($message)) {
 
                 <!-- Search icon -->
                 <div class="search-icon">
-                    <i class="fas fa-search"></i>
+                    <i class="bx bx-search"></i>
                 </div>
                 <!-- Search form -->
                 <section class="search-form">

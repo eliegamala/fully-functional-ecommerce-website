@@ -139,14 +139,13 @@ li {
 }
 
 /* Style the search icon in the header */
-.search-icon {
-  cursor: pointer;
-}
+
 
 
 /*icons*/
 
-.icon {
+.icon, .search-icon 
+  {
   cursor: pointer;
   font-size: 2.5rem;
   padding: 0 1rem;
@@ -159,7 +158,7 @@ li {
   color: var(--black);
 }
 
-#user-btn:hover {
+#user-btn:hover , .search-icon:hover{
   color: var(--white);
 }
 
@@ -824,5 +823,14 @@ footer .boxinfo p {
     text-align: center;
     margin-top: 1rem;
     margin-bottom: 1rem;
+  }
+
+  .search-form {
+  
+    top: 109%;
+    left: 1.8rem;
+    width: 90%;
+    
+    
   }
 }
