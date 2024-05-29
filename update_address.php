@@ -84,7 +84,7 @@ if(isset($_POST['submit'])){
 
   <!--footer section-->
    <?php
-     include 'INCLUDES/footer.php';
+     include 'INCLUDES/footer2.php';
     ?>
 
     <!--footer section ends-->

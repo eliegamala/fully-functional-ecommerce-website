@@ -23,7 +23,7 @@ if (isset($message)) {
         <div class="nav-center container d-flex">
 
             <!--logo-->
-            <a href="#home" class="logo "> <img src="logo/logo.svg"></a>
+            <a href="index.php" class="logo "> <img src="logo/logo.svg"></a>
 
             <!--navigation-->
             <ul class="nav-list d-flex">

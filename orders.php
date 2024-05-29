@@ -51,8 +51,8 @@ if(isset($_SESSION['user_id'])){
 <!--header section ends-->
 
 <div class="heading">
-      <h2>shopping cart</h2>
-      <p><a href="index.html"> home</a> <span> / cart</p>
+      <h2>Orders</h2>
+      <p><a href="index.html"> home</a> <span> / orders</p>
     </div>
 
 <!--orders section startss-->

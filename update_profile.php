@@ -122,7 +122,7 @@ if(isset($_POST['submit'])){
 
 
 
-<?php include 'INCLUDES/footer.php'; ?>
+<?php include 'INCLUDES/footer2.php'; ?>
 
 
 <!-- custom js file link  -->
