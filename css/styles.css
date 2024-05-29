@@ -20,6 +20,8 @@
 
 html {
   font-size: 62.5%;
+  height: 100%;
+  margin: 0;
 }
 
 body {
@@ -28,6 +30,12 @@ body {
   background-color: var(--white);
   font-weight: 400;
   font-style: normal;
+  position: relative;
+  margin-bottom: 15rem; 
+  min-height: 100vh; 
+  display: flex; 
+  flex-direction: column; 
+  
 }
 
 a {
@@ -543,6 +551,13 @@ li {
 
 
 
+
+/* Footer styles */
+
+footer {
+  margin-top: auto; /* Push the footer to the bottom */
+}
+
 footer .footerpara {
   padding: 3rem;
   text-align: center;
@@ -578,7 +593,6 @@ footer .boxinfo p {
   background-color: var(--gray);
   text-align: left;
 }
-
 /*media queries*/
 
 @media (max-width: 999px) {
