@@ -22,13 +22,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_review'])) {
     if ($user_id !== '') {
         $insert_review = $conn->prepare("INSERT INTO reviews (product_id, user_id, rating, comment) VALUES (?, ?, ?, ?)");
         $insert_review->execute([$product_id, $user_id, $rating, $comment]);
-          // Redirect to prevent form resubmission
-          header("Location: quick_view.php?pid=$product_id");
-          exit();
+        // Redirect to prevent form resubmission
+        header("Location: quick_view.php?pid=$product_id");
+        exit();
     } else {
         echo '<script>alert("You need to log in to submit a review!");</script>';
     }
 }
+
+// Delete review if requested
+if(isset($_GET['delete'])){
+  $delete_id = $_GET['delete'];
+  // Verify if the user is the author of the review or an admin
+  $check_review = $conn->prepare("SELECT user_id FROM reviews WHERE id = ?");
+  $check_review->execute([$delete_id]);
+  $review = $check_review->fetch(PDO::FETCH_ASSOC);
+
+  if ($review && ($review['user_id'] == $user_id || $_SESSION['role'] == 'admin')) {
+      $delete_review = $conn->prepare("DELETE FROM reviews WHERE id = ?");
+      $delete_review->execute([$delete_id]);
+      header('Location: quick_view.php?pid=' . $_GET['pid']);
+      exit();
+  } else {
+      echo '<script>alert("You are not authorized to delete this review!");</script>';
+  }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_review'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>quick view</title>
+  <title>Quick View</title>
 
   <!-- icon links -->
   <!-- Boxicons -->
@@ -57,15 +76,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_review'])) {
 <!-- header section ends -->
 
 <div class="heading">
-  <h2>product details</h2>
-  <p><a href="index.php">Home</a> <span> / product</span></p>
+  <h2>Product Details</h2>
+  <p><a href="index.php">Home</a> <span> / Product</span></p>
 </div>
 
 <!-- quick view section starts -->
 <section class="quick-view">
 <?php
 $pid = $_GET['pid'];
-$select_products = $conn->prepare("SELECT * FROM `products` WHERE ID = ?");
+$select_products = $conn->prepare("SELECT * FROM products WHERE ID = ?");
 $select_products->execute([$pid]);
 if($select_products->rowCount() > 0){
   while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)){
@@ -143,6 +162,10 @@ if($select_products->rowCount() > 0){
       <div class="review-body">
         <p><?= $fetch_reviews['comment']; ?></p>
         <small><?= $fetch_reviews['created_at']; ?></small>
+        <?php if ($fetch_reviews['user_id'] == $user_id || $_SESSION['role'] == 'admin') { ?>
+          <br>
+          <a href="quick_view.php?pid=<?= $pid; ?>&delete=<?= $fetch_reviews['id']; ?>" style="background-color:black; color:white;padding:0.5rem;border-radius:0.5rem;" onclick="return confirm('Are you sure you want to delete this review?');">Delete</a>
+        <?php } ?>
       </div>
     </div>
   <?php
