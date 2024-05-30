@@ -128,6 +128,19 @@ if(!isset($admin_id)){
       <a href="messages.php" class="btn">see messages</a>
    </div>
 
+
+   <div class="box">
+      <?php
+         $select_reviews = $conn->prepare("SELECT * FROM `reviews`");
+         $select_reviews->execute();
+         $numbers_of_reviews = $select_reviews->rowCount();
+      ?>
+      <h3><?= $numbers_of_reviews; ?></h3>
+      <p>manage reviews</p>
+      <a href="manage_reviews.php" class="btn">manage reviews</a>
+   </div>
+
+   
    </div>
 
 </section>

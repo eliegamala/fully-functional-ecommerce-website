@@ -778,13 +778,88 @@ section{
    background-color: #c82333;
 }
 
+.manage-reviews {
+   margin: 0 auto;
+   padding: 2rem;
+   max-width: 1200px; /* Center content and restrict width */
+}
 
+.manage-reviews .heading {
+   text-align: center;
+   font-size: 2.5rem;
+   margin-bottom: 2rem;
+   color: #333; /* More modern primary color */
+   font-family: 'Arial', sans-serif; /* Modern font */
+}
 
+.manage-reviews .box-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid layout */
+   gap: 2rem;
+}
 
+.manage-reviews .box-container .product-reviews {
+   background: #f9f9f9;
+   padding: 1.5rem;
+   border-radius: 10px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   transition: transform 0.3s; /* Add transition for hover effect */
+}
 
+.manage-reviews .box-container .product-reviews:hover {
+   transform: translateY(-10px); /* Hover effect for modern look */
+}
 
+.manage-reviews .box-container .product-reviews h2 {
+   font-size: 1.75rem;
+   color: #555; /* Secondary color */
+   margin-bottom: 1rem;
+}
 
+.manage-reviews .box-container .product-reviews .box {
+   background: #fff;
+   padding: 1rem;
+   border-radius: 8px;
+   margin-bottom: 1rem;
+   border-left: 5px solid #007bff; /* Primary color */
+   transition: background 0.3s; /* Add transition for hover effect */
+}
 
+.manage-reviews .box-container .product-reviews .box:hover {
+   background: #f1f1f1; /* Light background on hover */
+}
+
+.manage-reviews .box-container .product-reviews .box p {
+   margin: 0.5rem 0;
+   color: #333;
+   font-family: 'Arial', sans-serif;
+}
+
+.manage-reviews .box-container .product-reviews .box p strong {
+   color: #007bff; /* Secondary color */
+}
+
+.manage-reviews .box-container .product-reviews .delete-btn {
+   display: inline-block;
+   padding: 0.5rem 1rem;
+   color: white;
+   background-color: #e74c3c; 
+   border: none;
+   border-radius: 5px;
+   text-decoration: none;
+   transition: background-color 0.3s;
+}
+
+.manage-reviews .box-container .product-reviews .delete-btn:hover {
+   background-color: #c0392b; /* Darker red on hover */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+   .manage-reviews .box-container {
+      grid-template-columns: 1fr; /* Single column for tablets and mobile */
+   }
+}
 
 
 
