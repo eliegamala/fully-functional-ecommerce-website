@@ -106,7 +106,7 @@ if(isset($_POST['submit'])){
                $total_products = implode($cart_items);
                $grand_total += ($fetch_cart['price'] * $fetch_cart['quantity']);
       ?>
-      <p><span class="name"><?= $fetch_cart['name']; ?></span><span class="price">$<?= $fetch_cart['price']; ?> x <?= $fetch_cart['quantity']; ?></span></p>
+      <p><span class="name"><?= $fetch_cart['name']; ?></span><span class="price">R<?= $fetch_cart['price']; ?> x <?= $fetch_cart['quantity']; ?></span></p>
       <?php
             }
          }else{
