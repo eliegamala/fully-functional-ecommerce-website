@@ -220,30 +220,29 @@
 
 .message{
   position: sticky;
-  top: 0;
-  margin: 0 auto;
-  max-width: 100%;
-  background-color: #ccc;
+  top:0;
+  max-width: 1300px;
+  width: 100%;
+  margin:0 auto;
+  padding:2rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap:1rem;
   justify-content: space-between;
-  gap: 1.5rem;
-  padding: 2rem;
-
+  background-color: gainsboro;
 }
 
 .message span{
   font-size: 2rem;
+  color:black;
 }
 
 .message i{
   font-size: 2.5rem;
-  color: red;
+  color:red;
   cursor: pointer;
-  transition: .2s linear;
 }
 
 .message i:hover{
-  transform: rotate(180deg);
+  color:var(--black);
 }

@@ -73,16 +73,13 @@ if (isset($_POST['submit'])) {
 <!--login section starts-->
 
 <section class="form-container">
-
-<form action="" method="post">
-
-  <h3>login now</h3>
-  <input type="email" required maxlength="50" name="email" placeholder="Enter your email" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-  <input type="password" required maxlength="20" name="pass" placeholder="Enter your password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-
-  <input type="submit" value="login now" class="hero-btn" name="submit">
-  <p>don't have an account? <a href="register.php">register now</a></p>
-</form>
+  <form action="" method="post">
+    <h3>login now</h3>
+    <input type="email" required maxlength="50" name="email" placeholder="Enter your email" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+    <input type="password" required maxlength="20" name="pass" placeholder="Enter your password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+    <input type="submit" value="login now" class="hero-btn" name="submit">
+    <p>don't have an account? <a href="register.php">register now</a></p>
+  </form>
 </section>
 
 <!--login section ends-->
