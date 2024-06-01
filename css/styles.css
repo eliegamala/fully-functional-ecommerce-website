@@ -688,7 +688,7 @@ footer .boxinfo p {
     top: 12%;
     left: -100%;
     flex-direction: column;
-    align-items: flex-start;
+    align-items:flex-end;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.02);
     background-color: var(--white);
     height: 100%;
@@ -712,7 +712,17 @@ footer .boxinfo p {
   .nav-list .nav-item {
     margin: 0 0 1rem 0;
     width: 100%;
+    background-color: var(--gray);
   }
+
+  .nav-list .nav-item:hover{
+      background-color: var(--white);
+  }
+  .nav-list .nav-item a:hover{
+    color: var(--black);
+
+  }
+
 
   .nav-list .nav-link {
     font-size: 2rem;
