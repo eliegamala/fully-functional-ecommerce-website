@@ -65,8 +65,8 @@ include  'INCLUDES/add_cart.php';
                 <div class="center">
                   <div class="left">
                     <span class="">Anime</span>
-                    <h1 class="">Lorem, ipsum dolor.</h1>
-                    <p>Lorem ipsum dolor sit amet.</p>
+                    <h1 class="">Level Up Your <br>Anime Collection</h1>
+                    <p>Top Picks in Anime Figures, Clothing, and More</p>
                     <a href="shop.php" class="hero-btn">SHOP NOW</a>
                   </div>
                   <div class="right">
@@ -80,8 +80,8 @@ include  'INCLUDES/add_cart.php';
                 <div class="center">
                   <div class="left">
                     <span>New merch</span>
-                    <h1>Lorem dtps mon!</h1>
-                    <p>Lorem ipsum dolor sit.</p>
+                    <h1>Epic Anime Finds!</h1>
+                    <p>Shop the Hottest Anime Products Now</p>
                     <a href="shop.php" class="hero-btn">SHOP NOW</a>
                   </div>
                   <div class="right">
