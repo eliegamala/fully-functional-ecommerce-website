@@ -290,6 +290,15 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+ALTER TABLE `cart`
+ADD CONSTRAINT `fk_cart_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`),
+ADD CONSTRAINT `fk_cart_product` FOREIGN KEY (`pid`) REFERENCES `products` (`ID`);
+
+ALTER TABLE `messages`
+ADD CONSTRAINT `fk_messages_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`);
+
+ALTER TABLE `orders`
+ADD CONSTRAINT `fk_orders_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`);
 
 --
 -- Constraints for table `reviews`
@@ -298,6 +307,8 @@ ALTER TABLE `reviews`
   ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`ID`),
   ADD CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`);
 COMMIT;
+
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

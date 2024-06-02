@@ -27,7 +27,6 @@ searchIcon.addEventListener('click', () => {
   profile.classList.remove("active"); // removes the login pop up when the side bar is clicked
   document.querySelector(".nav-list").classList.remove("open"); // removes the side bar when the account btn is pressed
 
-
 });
 
 document.querySelectorAll('input[type="number"]').forEach(input => {
